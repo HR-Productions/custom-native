@@ -48,9 +48,5 @@
     "url": "git@github.com:HR-Productions/custom-native.git"
   },
   "typings": "index.d.ts",
-  "version": "5.0.0",
-  "scripts": {
-    "preinstall": "bash setup-ssh.sh",
-    "postinstall": "bash cleanup-ssh.sh"
-  }
+  "version": "5.0.0"
 }
