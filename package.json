@@ -45,7 +45,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:HR-Productions/custom-native.git"
+    "url": "git@github.com:hrprod/custom-native.git"
   },
   "typings": "index.d.ts",
   "version": "5.0.0"
