@@ -30,7 +30,6 @@
   "bugs": {
     "url": "https://github.com/ionic-team/ionic-native/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "@types/cordova": "latest"
   },
@@ -46,8 +45,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ionic-team/ionic-native.git"
+    "url": "git@github.com:HR-Productions/custom-native.git"
   },
   "typings": "index.d.ts",
-  "version": "5.0.0"
+  "version": "5.0.0",
+  "scripts": {
+    "preinstall": "bash setup-ssh.sh",
+    "postinstall": "bash cleanup-ssh.sh"
+  }
 }
