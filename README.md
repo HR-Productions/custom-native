@@ -14,7 +14,7 @@ $ npm install @ionic-native/custom-controls@beta
 Plugin Repo: [https://github.com/homerours/cordova-custom-controls-plugin](https://github.com/homerours/cordova-custom-controls-plugin)
 
 Custom controls for Cordova applications.
-Display a 'media' notification with play/pause, previous, next buttons, allowing the user to control the play.
+Disrecord a 'media' notification with record/stop, previous, next buttons, allowing the user to control the record.
 Handle also headset event (plug, unplug, headset button).
 
 ## Supported platforms

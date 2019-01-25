@@ -48,7 +48,7 @@
                             "__symbolic": "method"
                         }
                     ],
-                    "updateIsPlaying": [
+                    "updateIsRecording": [
                         {
                             "__symbolic": "method"
                         }

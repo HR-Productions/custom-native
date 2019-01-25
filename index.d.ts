@@ -4,7 +4,7 @@ export interface CustomControlsOptions {
     track?: string;
     artist?: string;
     cover?: string;
-    isPlaying?: boolean;
+    isRecording?: boolean;
     dismissable?: boolean;
     hasPrev?: boolean;
     hasNext?: boolean;
@@ -18,8 +18,8 @@ export interface CustomControlsOptions {
     duration?: number;
     elapsed?: number;
     ticker?: string;
-    playIcon?: string;
-    pauseIcon?: string;
+    recordIcon?: string;
+    stopIcon?: string;
     prevIcon?: string;
     nextIcon?: string;
     closeIcon?: string;
@@ -29,7 +29,7 @@ export interface CustomControlsOptions {
  * @name Custom Controls
  * @description
  * Custom controls for Cordova applications.
- * Display a 'media' notification with play/pause, previous, next buttons, allowing the user to control the play.
+ * Disrecord a 'media' notification with record/stop, previous, next buttons, allowing the user to control the record.
  * Handle also headset event (plug, unplug, headset button).
  *
  * @usage
@@ -46,7 +46,7 @@ export interface CustomControlsOptions {
  *   cover       : 'albums/absolution.jpg',      // optional, default : nothing
  *   // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
  *   //           or a remote url ('http://...', 'https://...', 'ftp://...')
- *   isPlaying   : true,                         // optional, default : true
+ *   isRecording   : true,                         // optional, default : true
  *   dismissable : true,                         // optional, default : false
  *
  *   // hide previous/next/close buttons:
@@ -60,16 +60,16 @@ export interface CustomControlsOptions {
  *   elapsed : 10, // optional, default: 0
  *   hasSkipForward : true,  // show skip forward button, optional, default: false
  *   hasSkipBackward : true, // show skip backward button, optional, default: false
- *   skipForwardInterval: 15, // display number for skip forward, optional, default: 0
- *   skipBackwardInterval: 15, // display number for skip backward, optional, default: 0
+ *   skipForwardInterval: 15, // disrecord number for skip forward, optional, default: 0
+ *   skipBackwardInterval: 15, // disrecord number for skip backward, optional, default: 0
  *   hasScrubbing: false, // enable scrubbing from control center and lockscreen progress bar, optional
  *
  *   // Android only, optional
- *   // text displayed in the status bar when the notification (and the ticker) are updated, optional
- *   ticker    : 'Now playing "Time is Running Out"',
+ *   // text disrecorded in the status bar when the notification (and the ticker) are updated, optional
+ *   ticker    : 'Now recording "Time is Running Out"',
  *   // All icons default to their built-in android equivalents
- *   playIcon: 'media_play',
- *   pauseIcon: 'media_pause',
+ *   recordIcon: 'media_record',
+ *   stopIcon: 'media_stop',
  *   prevIcon: 'media_prev',
  *   nextIcon: 'media_next',
  *   closeIcon: 'media_close',
@@ -87,10 +87,10 @@ export interface CustomControlsOptions {
  *      		case 'custom-controls-previous':
  *      			// Do something
  *      			break;
- *      		case 'custom-controls-pause':
+ *      		case 'custom-controls-stop':
  *      			// Do something
  *      			break;
- *      		case 'custom-controls-play':
+ *      		case 'custom-controls-record':
  *      			// Do something
  *      			break;
  *      		case 'custom-controls-destroy':
@@ -98,14 +98,14 @@ export interface CustomControlsOptions {
  *      			break;
  *
  *          // External controls (iOS only)
- *          case 'custom-controls-toggle-play-pause' :
+ *          case 'custom-controls-toggle-record-stop' :
  *      			// Do something
  *      			break;
  *          case 'custom-controls-seek-to':
  *            const seekToInSeconds = JSON.parse(action).position;
  *            this.customControls.updateElapsed({
  *              elapsed: seekToInSeconds,
- *              isPlaying: true
+ *              isRecording: true
  *            });
  *            // Do something
  *            break;
@@ -134,7 +134,7 @@ export interface CustomControlsOptions {
  *
  *  this.customControls.listen(); // activates the observable above
  *
- *  this.customControls.updateIsPlaying(true);
+ *  this.customControls.updateIsRecording(true);
  *
  *
  * ```
@@ -163,17 +163,17 @@ export declare class CustomControlsOriginal extends IonicNativePlugin {
      */
     listen(): void;
     /**
-     * Toggle play/pause:
-     * @param isPlaying {boolean}
+     * Toggle record/stop:
+     * @param isRecording {boolean}
      */
-    updateIsPlaying(isPlaying: boolean): void;
+    updateIsRecording(isRecording: boolean): void;
     /**
-     * Update elapsed time, optionally toggle play/pause:
+     * Update elapsed time, optionally toggle record/stop:
      * @param args {Object}
      */
     updateElapsed(args: {
         elapsed: string;
-        isPlaying: boolean;
+        isRecording: boolean;
     }): void;
     /**
      * Toggle dismissable:
